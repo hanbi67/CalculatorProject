@@ -35,9 +35,28 @@ public class App {
                 }
             }
 
-            //2. 사칙연산 기호 입력받기
-            System.out.print("사칙연산 기호를 입력하세요: ");
-            Character operator = scanner.next().charAt(0); //문자열의 0번째 문자를 char 타입으로 변환
+            //2. 사칙연산 기호 입력 -> 입력 및 검증 받기 (수정)
+
+            Character operator;
+            while (true) {
+                System.out.print("사칙연산 기호를 입력하세요: ");
+                operator = scanner.next().charAt(0); //문자열의 0번째 문자를 char 타입으로 변환
+
+                if (operator.equals('+') || operator.equals('-') || operator.equals('*') || operator.equals('/')) {
+
+                    //나눗셈 기호이면서 num2가 0인 경우, 사칙연산 기호 입력 반복
+                    if (operator.equals('/') && num2 == 0) {
+                        System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                        continue;
+                    }
+                    else break; //해당하지 않으면 while문 종료
+
+                } else {
+                    //사칙연산 기호가 아닌 경우
+                    System.out.println("입력하신 기호는 사칙연산 기호가 아닙니다.");
+                    continue;
+                }
+            }
 
 
             //3. 위에서 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력하기
@@ -56,15 +75,8 @@ public class App {
                     System.out.println("결과: " + result);
                     break;
                 case '/':
-                    if (num2==0) {
-                        System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                        break;
-                    }
                     result = num1 / num2;
                     System.out.println("결과: " + result);
-                    break;
-                default:
-                    System.out.println("입력하신 기호는 사칙연산 기호가 아닙니다.");
                     break;
             }
 
