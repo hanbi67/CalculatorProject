@@ -31,9 +31,10 @@ public class App {
             }
         }
 
-        System.out.println("num1: " + num1);
-        System.out.println("num2: " + num2);
+        //사칙연산 기호 입력받기
+        System.out.print("사칙연산 기호를 입력하세요: ");
+        Character operator = scanner.next().charAt(0); //문자열의 0번째 문자를 char 타입으로 변환
 
-
+        System.out.println("입력 받은 사칙연산 기호: " + operator);
     }
 }
