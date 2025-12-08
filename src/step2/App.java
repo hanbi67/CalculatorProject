@@ -79,6 +79,12 @@ public class App {
             //저장된 resultsList 값 호출
             System.out.println("저장된 resultsList 값: " + calculator.getResultsList());
 
+            //저장된 resultsList에서 원하는 값 삭제
+            System.out.print("resultsList에서 삭제할 값 입력: ");
+            Integer removeValue = scanner.nextInt();
+            calculator.removeResultsList(removeValue);
+
+
             System.out.print("계산을 계속 진행하시겠습니까?(exit 입력 시 종료) ");
 
             // ❗nextInt() 뒤에 남아있는 개행 제거
