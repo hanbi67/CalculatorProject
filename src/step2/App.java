@@ -1,5 +1,6 @@
 package step2;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -14,26 +15,36 @@ public class App {
             System.out.println("==========================================");
 
             //1. 양의 정수 2개(0포함) 입력 받기 - 음수는 입력받을 수 없도록 제한
+            //예외처리 추가 : 숫자가 아닌 문자가 입력되었을 경우
             Integer num1;
             while (true) {
-                System.out.print("첫 번째 숫자를 입력하세요: ");
-                num1 = scanner.nextInt();
-                if (num1 < 0) {
-                    System.out.println("0을 포함한 양의 정수만 입력 가능합니다. 다시 입력해주세요.");
-                } else {
-                    break;
+                try {
+                    System.out.print("첫 번째 숫자를 입력하세요: ");
+                    num1 = scanner.nextInt();
+                    if (num1 < 0) {
+                        System.out.println("0을 포함한 양의 정수만 입력 가능합니다. 다시 입력해주세요.");
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("숫자만 입력 가능합니다. 다시 입력해주세요.");
+                    scanner.nextLine(); //잘못 입력한 값 제거
                 }
             }
 
             Integer num2;
             while (true) {
-                System.out.print("두 번째 숫자를 입력하세요: ");
-                num2 = scanner.nextInt();
-                if (num2 < 0) {
-                    System.out.println("0을 포함한 양의 정수만 입력 가능합니다. 다시 입력해주세요.");
-                } else {
-
-                    break;
+                try {
+                    System.out.print("두 번째 숫자를 입력하세요: ");
+                    num2 = scanner.nextInt();
+                    if (num2 < 0) {
+                        System.out.println("0을 포함한 양의 정수만 입력 가능합니다. 다시 입력해주세요.");
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("숫자만 입력 가능합니다. 다시 입력해주세요.");
+                    scanner.nextLine(); //잘못 입력한 값 제거
                 }
             }
 
@@ -59,7 +70,7 @@ public class App {
                 }
             }
 
-            // 위에서 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력하기
+            // 3. 위에서 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력하기
 
             switch (operator) {
                 case '+':
@@ -84,7 +95,7 @@ public class App {
 //            Integer removeValue = scanner.nextInt();
 //            calculator.removeResultsList(removeValue);
 
-            ///resultsList에서 가장 먼저 저장된 값을 삭제할지 여부 선택
+            ///4. resultsList에서 가장 먼저 저장된 값을 삭제할지 여부 선택
             //while 반복문으로 잘못 입력 시 다시 반복
             while (true){
                 System.out.print("resultsList에서 가장 먼저 저장된 값을 삭제하시겠습니까?(y/n) ");
