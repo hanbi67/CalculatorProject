@@ -79,11 +79,26 @@ public class App {
             //저장된 resultsList 값 호출
             System.out.println("저장된 resultsList 값: " + calculator.getResultsList());
 
-            //저장된 resultsList에서 원하는 값 삭제
-            System.out.print("resultsList에서 삭제할 값 입력: ");
-            Integer removeValue = scanner.nextInt();
-            calculator.removeResultsList(removeValue);
+//            ///저장된 resultsList에서 원하는 값 삭제
+//            System.out.print("resultsList에서 삭제할 값 입력: ");
+//            Integer removeValue = scanner.nextInt();
+//            calculator.removeResultsList(removeValue);
 
+            ///resultsList에서 가장 먼저 저장된 값을 삭제할지 여부 선택
+            //while 반복문으로 잘못 입력 시 다시 반복
+            while (true){
+                System.out.print("resultsList에서 가장 먼저 저장된 값을 삭제하시겠습니까?(y/n) ");
+                String removeFirstValue = scanner.next();
+                if (removeFirstValue.equals("y")) {
+                    //가장 첫 번째 값 삭제 메서드 불러오기
+                    calculator.removeFirstValue(removeFirstValue);
+                    break;
+                } else if (removeFirstValue.equals("n")) {
+                    break;
+                } else {
+                    System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+                }
+            }//while()
 
             System.out.print("계산을 계속 진행하시겠습니까?(exit 입력 시 종료) ");
 
