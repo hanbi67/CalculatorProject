@@ -1,7 +1,5 @@
 package step3;
 
-import step2.Calculator;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,11 +17,11 @@ public class Main {
 
             //1. 양의 정수 2개(0포함) 입력 받기 - 음수는 입력받을 수 없도록 제한
             //예외처리 추가 : 숫자가 아닌 문자가 입력되었을 경우
-            Integer num1;
+            Double num1;
             while (true) {
                 try {
                     System.out.print("첫 번째 숫자를 입력하세요: ");
-                    num1 = scanner.nextInt();
+                    num1 = scanner.nextDouble();
                     if (num1 < 0) {
                         System.out.println("0을 포함한 양의 정수만 입력 가능합니다. 다시 입력해주세요.");
                     } else {
@@ -35,11 +33,11 @@ public class Main {
                 }
             }
 
-            Integer num2;
+            Double num2;
             while (true) {
                 try {
                     System.out.print("두 번째 숫자를 입력하세요: ");
-                    num2 = scanner.nextInt();
+                    num2 = scanner.nextDouble();
                     if (num2 < 0) {
                         System.out.println("0을 포함한 양의 정수만 입력 가능합니다. 다시 입력해주세요.");
                     } else {
@@ -79,7 +77,7 @@ public class Main {
 
 
             //3 .저장된 resultsList 값 호출
-            int result = arithmeticcalculator.calculation(num1, num2, operator);
+            double result = arithmeticcalculator.calculation(num1, num2, operator);
             System.out.println("연산 결과: " + result);
 
             System.out.println("저장된 resultsList 값: " + arithmeticcalculator.getResultsList());

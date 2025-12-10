@@ -33,7 +33,7 @@ public enum OperatorType {
 
     //사칙연산 수행 기능
     //ArithmeticCalculator 클래스에서 사용됨
-    public int calculation(int num1, int num2) {
+    public double calculation(double num1, double num2) {
         switch (this) {
             case SUM:
                 return num1 + num2;

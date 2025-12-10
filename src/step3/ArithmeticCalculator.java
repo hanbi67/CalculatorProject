@@ -4,15 +4,21 @@ import java.util.ArrayList;
 
 //STEP 3. Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
 //Enum에서 정의한 내용을 가지고 ArithmeticCalculator에서 활용.
-public class ArithmeticCalculator {
+public class ArithmeticCalculator<T extends Number> {
 
     /* 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 */
-    private static ArrayList<Integer> resultsList = new ArrayList<>();
+    private static final ArrayList<Double> resultsList = new ArrayList<>();
 
     //사칙연산 수행 후, 컬렉션에 저장 && 결과값 반환 메서드
     //세터 - Enum에서 계산 후, 값을 전달 받아 resultsList 컬렉션에 저장
-    public int calculation(int num1, int num2, OperatorType operatorType) {
-        int result = operatorType.calculation(num1, num2);
+    //// 제네릭 활용
+    public double calculation(T num1, T num2, OperatorType operatorType) {
+        //모든 타입으로 num1, num2 값을 받아오고
+        //double 타입으로 num1, num2를 저장
+        double n1 = num1.doubleValue();
+        double n2 = num2.doubleValue();
+
+        double result = operatorType.calculation(n1, n2);
         resultsList.add(result);
         return result;
     }
@@ -33,7 +39,7 @@ public class ArithmeticCalculator {
     }
 
     //게터 - 요청 시 resultsList 컬렉션 값 조회
-    public ArrayList<Integer> getResultsList() {
+    public ArrayList<Double> getResultsList() {
         return resultsList;
     }
 
