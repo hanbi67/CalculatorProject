@@ -75,17 +75,13 @@ public class Main {
                 }
             }
 
-
             //3 .저장된 resultsList 값 호출
             double result = arithmeticcalculator.calculation(num1, num2, operator);
             System.out.println("연산 결과: " + result);
-
             System.out.println("저장된 resultsList 값: " + arithmeticcalculator.getResultsList());
 
 
-
-
-            ///4. resultsList에서 가장 먼저 저장된 값을 삭제할지 여부 선택
+            //4. resultsList에서 가장 먼저 저장된 값을 삭제할지 여부 선택
             //while 반복문으로 잘못 입력 시 다시 반복
             while (true){
                 System.out.print("resultsList에서 가장 먼저 저장된 값을 삭제하시겠습니까?(y/n) ");
@@ -101,6 +97,15 @@ public class Main {
                 }
             }//while()
 
+            System.out.println("==========================================");
+
+            //5. resultsList에서 Scanner로 입력받은 값보다 더 큰 값 조회 후 출력
+            System.out.print("결과값과 비교할 값 입력: ");
+            double inputValue = scanner.nextDouble();
+            arithmeticcalculator.bigResultPrint(inputValue);
+
+
+            System.out.println("==========================================");
             System.out.print("계산을 계속 진행하시겠습니까?(exit 입력 시 종료) ");
 
             // ❗nextInt() 뒤에 남아있는 개행 제거

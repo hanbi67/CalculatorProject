@@ -1,6 +1,8 @@
 package step3;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 //STEP 3. Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기
 //Enum에서 정의한 내용을 가지고 ArithmeticCalculator에서 활용.
@@ -42,5 +44,15 @@ public class ArithmeticCalculator<T extends Number> {
     public ArrayList<Double> getResultsList() {
         return resultsList;
     }
+
+    //저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력
+    //Lambda & Stream을 활용
+    public void bigResultPrint(double inputValue){
+        List<Double> bigResults = resultsList.stream()
+                .filter(result -> result > inputValue)
+                .collect(Collectors.toList());
+        System.out.println(inputValue + "보다 더 큰 결과값 조회: "+ bigResults);
+    }
+
 
 }
